@@ -1,9 +1,12 @@
-from django.urls import path
-from .views import project_list, task_list, project_detail, task_detail
+from django.urls import path, include
+from .views import ProjectViewSet, TaskViewSet
+from rest_framework import routers
+
+router = routers.SimpleRouter()
+router.register(r'projects', ProjectViewSet)
+router.register(r'tasks', TaskViewSet)
+
 
 urlpatterns = [
-    path('projects/', project_list),
-    path('tasks/', task_list),
-    path('projects/<int:pk>/', project_detail),
-    path('tasks/<int:pk>/', task_detail),
+    path('', include(router.urls)),
 ]
