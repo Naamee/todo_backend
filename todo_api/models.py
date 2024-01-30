@@ -14,6 +14,15 @@ class Task(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     title = models.CharField(max_length=150)
     description = models.TextField()
+    due_date = models.DateField()
+
+    PRIORITY_CHOICES = [
+    ('high', 'High Priority'),
+    ('medium', 'Medium Priority'),
+    ('low', 'Low Priority'),
+    ]
+
+    priority = models.CharField(max_length=10, choices=PRIORITY_CHOICES)
     completed = models.BooleanField(default=False)
 
     def __str__(self):

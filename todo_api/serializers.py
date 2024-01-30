@@ -9,4 +9,4 @@ class ProjectSerializer(serializers.ModelSerializer):
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = ['id', 'project', 'title', 'description', 'completed']
+        fields = ['id', 'project', 'title', 'description', 'due_date', 'priority', 'completed']
