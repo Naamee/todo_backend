@@ -17,12 +17,12 @@ class Task(models.Model):
     due_date = models.DateField()
 
     PRIORITY_CHOICES = [
-    ('high', 'High Priority'),
-    ('medium', 'Medium Priority'),
-    ('low', 'Low Priority'),
+    ('HIGH PRIORITY', 'High Priority'),
+    ('MEDIUM PRIORITY', 'Medium Priority'),
+    ('LOW PRIORITY', 'Low Priority'),
     ]
 
-    priority = models.CharField(max_length=10, choices=PRIORITY_CHOICES)
+    priority = models.CharField(max_length=15, choices=PRIORITY_CHOICES)
     completed = models.BooleanField(default=False)
 
     def __str__(self):
