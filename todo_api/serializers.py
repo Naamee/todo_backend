@@ -12,8 +12,3 @@ class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
         fields = ['id', 'project', 'title', 'description', 'due_date', 'priority', 'completed']
-    
-    # def to_representation(self, instance):
-    #     representation = super().to_representation(instance)
-    #     representation['due_date'] = instance.due_date.strftime('%d/%m/%Y')
-    #     return representation
