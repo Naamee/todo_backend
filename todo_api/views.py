@@ -19,6 +19,20 @@ class ProjectViewSet(
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
+    @action(detail=False, methods=['get'])
+    def get_project_id(self, request):
+        project_name = request.query_params.get('name', None)
+
+        if project_name is None:
+            return Response({'error': 'Please provide a name parameter'}, status=400)
+
+        try:
+            project = Project.objects.get(name=project_name)
+            return Response({'project_id': project.id})
+        except Project.DoesNotExist:
+            return Response({'error': 'Project not found'}, status=404)
+
+
 class TaskViewSet(
     viewsets.GenericViewSet,
     mixins.ListModelMixin,
