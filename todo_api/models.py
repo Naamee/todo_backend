@@ -17,9 +17,9 @@ class Task(models.Model):
     due_date = models.DateField()
 
     PRIORITY_CHOICES = [
-    ('HIGH PRIORITY', 'High Priority'),
-    ('MEDIUM PRIORITY', 'Medium Priority'),
-    ('LOW PRIORITY', 'Low Priority'),
+    ('High Priority', 'High Priority'),
+    ('Medium Priority', 'Medium Priority'),
+    ('Low Priority', 'Low Priority'),
     ]
 
     priority = models.CharField(max_length=15, choices=PRIORITY_CHOICES)
