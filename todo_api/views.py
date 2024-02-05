@@ -45,3 +45,4 @@ class TaskViewSet(
         tasks = Task.objects.filter(**filters)
         serializer = self.get_serializer(tasks, many=True)
         return Response(serializer.data)
+    
